@@ -1,13 +1,9 @@
 {
-  "name": "dialogue-server-types",
+  "name": "dialogue_server_types",
   "tree": {
-    "$className": "DataModel",
+    "$path": "Packages",
     "dialogue-server-types": {
-      "$path": "Packages",
-      "$ignoreUnknownInstances": true,
-      "dialogue-server-types": {
-        "$path": "src"
-      }
+      "$path": "src"
     }
   }
 }

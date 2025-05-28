@@ -1,6 +1,6 @@
 --!strict
 
-local IDialogue = require(script.Parent["dialogue-types"]);
+local IDialogue = require("@pkg/dialogue-types");
 
 type Dialogue = IDialogue.Dialogue;
 
