@@ -1,9 +1,0 @@
-{
-  "name": "dialogue_server_types",
-  "tree": {
-    "$path": "Packages",
-    "dialogue-server-types": {
-      "$path": "src"
-    }
-  }
-}

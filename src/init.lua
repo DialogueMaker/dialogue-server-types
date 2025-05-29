@@ -1,6 +1,6 @@
 --!strict
 
-local IDialogue = require("@pkg/dialogue-types");
+local IDialogue = require(script.Parent.roblox_packages.dialogue_types);
 
 type Dialogue = IDialogue.Dialogue;
 
