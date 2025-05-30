@@ -4,7 +4,7 @@ local IDialogue = require(script.Parent.roblox_packages.dialogue_types);
 
 type Dialogue = IDialogue.Dialogue;
 
-export type ClickDetectorDialogueServerSettings = {
+export type ClickDetectorConversationSettings = {
   -- If true, this automatically creates a ClickDetector inside of the NPC's model. 
   shouldAutoCreate: boolean; 
   -- If true, the ClickDetector's parent will be nil until the dialogue is over. This hides the cursor from the player. 
@@ -14,22 +14,22 @@ export type ClickDetectorDialogueServerSettings = {
   adornee: Instance?;
 }
 
-export type DistanceDialogueServerSettings = {
+export type DistanceConversationSettings = {
   -- Maximum magnitude between the NPC's HumanoidRootPart and the player's PrimaryPart before the conversation ends. Requires EndConversationIfOutOfDistance to be true.
   maxConversationDistance: number?;
   relativePart: BasePart?;
 }
 
-export type DialogueServerSettings = {
-  clickDetector: ClickDetectorDialogueServerSettings;
-  distance: DistanceDialogueServerSettings;
-  general: GeneralDialogueServerSettings;
-  promptRegion: PromptRegionDialogueServerSettings;
-  proximityPrompt: ProximityPromptDialogueServerSettings;
-  speechBubble: SpeechBubbleDialogueServerSettings;
+export type ConversationSettings = {
+  clickDetector: ClickDetectorConversationSettings;
+  distance: DistanceConversationSettings;
+  general: GeneralConversationSettings;
+  promptRegion: PromptRegionConversationSettings;
+  proximityPrompt: ProximityPromptConversationSettings;
+  speechBubble: SpeechBubbleConversationSettings;
 }
 
-export type GeneralDialogueServerSettings = {
+export type GeneralConversationSettings = {
   --[[
     The character's name. Themes may show this name to the player during the conversation.
   ]]
@@ -44,7 +44,7 @@ export type GeneralDialogueServerSettings = {
   shouldFreezePlayer: boolean; 
 }
 
-export type OptionalDialogueServerSettings = {
+export type OptionalConversationSettings = {
   general: {
     --[[
       The character's name. Themes may show this name to the player during the conversation.
@@ -115,19 +115,19 @@ export type OptionalDialogueServerSettings = {
   }?;
 }
 
-export type PromptRegionDialogueServerSettings = {
+export type PromptRegionConversationSettings = {
   -- The conversation will automatically start when the player touches this part.
   basePart: BasePart?; 
 }
 
-export type ProximityPromptDialogueServerSettings = {
+export type ProximityPromptConversationSettings = {
   -- If true, this automatically creates a ProximityPrompt inside of the NPC's model.
   shouldAutoCreate: boolean; 
   -- The location of the ProximityPrompt. (Ex. workspace.Model.ProximityPrompt) This setting will be ignored if AutoCreate is true. 
   instance: ProximityPrompt?; 
 }
 
-export type SpeechBubbleDialogueServerSettings = {
+export type SpeechBubbleConversationSettings = {
   -- If true, this automatically creates a BillboardGui inside of the NPC's model.
   shouldAutoCreate: boolean; 
   adornee: Instance?;
@@ -135,16 +135,16 @@ export type SpeechBubbleDialogueServerSettings = {
   billboardGUI: BillboardGui?;
 }
 
-export type DialogueServerProperties = {
+export type ConversationProperties = {
   moduleScript: ModuleScript;
 };
 
-export type DialogueServerMethods = {
-  getChildren: (self: DialogueServer) -> {Dialogue};
-  getSettings: (self: DialogueServer) -> DialogueServerSettings;
-  setSettings: (self: DialogueServer, settings: DialogueServerSettings) -> ();
+export type ConversationMethods = {
+  getChildren: (self: Conversation) -> {Dialogue};
+  getSettings: (self: Conversation) -> ConversationSettings;
+  setSettings: (self: Conversation, settings: ConversationSettings) -> ();
 };
 
-export type DialogueServer = DialogueServerProperties & DialogueServerMethods;
+export type Conversation = ConversationProperties & ConversationMethods;
 
 return {}
